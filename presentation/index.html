@@ -101,7 +101,7 @@
             <section>
                 <img src="./img/escher.gif">
                 <br>
-                <small>Source: https://http://hanswisbrun.nl</small>
+                <small>Source: http://hanswisbrun.nl</small>
                 <aside class="notes">
                     Recursive Definitions / Strange Loops
                 </aside>
@@ -229,6 +229,10 @@ sum (\i -> i^2) [1..n]
                     <small>\sum_{ i \mathop =1}^{n} i^2</small>
                 </div>
             </section>
+            <section>
+                <h4>Easy to read and write</h4>
+                <code>sum (\i -> i^2) [1..10]</code>
+            </section>
         </section>
 
         <section>
@@ -351,11 +355,27 @@ add(5);
 [1..]</pre>
             </section>
             <section>
+                <h3>List Operations</h3>
+            <pre style="font-size: 120%">
+head
+tail
+init
+last
+++
+:
+reverse
+sort</pre>
+            </section>
+            <section>
                 <h3>Pairs / Tuples</h3>
                 <pre style="font-size: 120%">
 (1, 2)
 (1, 2, 3)
 (1, 2, 3, ...)</pre>
+                <h4>Operations</h4>
+                <pre style="font-size: 120%">
+fst
+snd</pre>
             </section>
             <section>
                 <div>
@@ -420,20 +440,158 @@ even = (`mod` 2)</pre>
         </section>
 
         <section>
-          List Operations
+            <h3>List Comprehension</h3>
+            <pre style="font-size: 110%">
+[ (x,y) | x <- [1..10],
+          y <- [1..10],
+          x+y < 15]
+
+-- Or better
+
+[ (x,y) | x <- [1..10],
+          let z = 15-x,
+          y <- [1..(min 10 z)]]</pre>
         </section>
 
         <section>
-          List Comprehension
+            <section>
+                <h3>Map, Filter & Reduce</h3>
+            </section>
+            <section>
+                <h3>Map</h3>
+                <small>(Destructuring, Recursion)</small>
+            </section>
+            <section>
+                <h3>Filter</h3>
+                <small>(if/else/then, where)</small>
+            </section>
+            <section>
+                <h3>All & Any</h3>
+                <small>Pa</small>
+            </section>
+            <section>
+                <h3>Fold</h3>
+            </section>
         </section>
 
         <section>
-          Destructuring
-          - Pattern Matching
+            <section>
+                <h3>Lambda</h3>
+                <h4>(Find the differences)</h4>
+
+                <p>$\lambda x \mapsto x + 1$</p>
+                <code>\ x -> x + 1</code>
+            </section>
         </section>
 
         <section>
-          Composition and $
+            <section>
+                <h3>Pattern Matching</h3>
+            </section>
+            <section>
+                <pre style="font-size: 120%">
+data Expr = I Int
+          | Add Expr Expr
+          | Mult Expr Expr
+          deriving (Show)</pre>
+            </section>
+            <section>
+                <pre style="font-size: 100%">
+expr1 = (Mult (I 4)
+              (Add (I 1) (I 2)))
+expr2 = (Add (I 4)
+             (Mult (I 1) (I 2)))</pre>
+            </section>
+            <section>
+                <pre style="font-size: 100%">
+eval :: Expr -> Int
+eval (I i) = i
+eval (Add l r) = eval l + eval r
+eval (Mult l r) = eval l * eval r</pre>
+            </section>
+            <section>
+                <h4>Optionals</h4>
+            </section>
+            <section>
+                <pre style="font-size: 100%">
+opt :: (Maybe a) -> a
+opt Nothing = error "NotFound"
+opt (Just a) = a</pre>
+            </section>
+            <section>
+                <pre style="font-size: 100%">
+opt :: (a -> b) -> (Maybe a) -> b
+opt _ Nothing = error "NotFound"
+opt f (Just a) = f a
+
+foo = opt (+9000) getSomeObject</pre>
+            </section>
+            <section>
+                <h4>Tuples / Triples</h4>
+            </section>
+            <section>
+                <pre style="font-size:65%">
+euler9 :: Integer
+euler9 = product [a, b, c]
+  where (a, b, c) = head [(x,y,z) | x <- [1..333],
+                                    y <- [x..500],
+                                    let z = 1000-x-y,
+                                    x^2 + y^2 == z^2]
+                </pre>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h3>Composition</h3>
+            </section>
+            <section>
+                <p>$f : X \rightarrow Y$</p>
+
+                <p>$g : Y \rightarrow Z$</p>
+                <br>
+
+                <p>$h : X \rightarrow Z$</p>
+            </section>
+            <section>
+                <p>$f : X \rightarrow Y$</p>
+
+                <p>$g : Y \rightarrow Z$</p>
+                <br>
+
+                <p>$h : X \rightarrow Z$</p>
+
+                <p>$h(x) = g(f(x))$</p>
+
+                <p>$h = g \cdot f$</p>
+            </section>
+            <section>
+                <h4>Composition in Haskell</h4>
+            </section>
+            <section>
+                <p>1) $h(x) = g(f(x))$</p>
+                <pre style="font-size: 120%">
+f = (+1)
+g = show
+
+h x = g (f x)</pre>
+            </section>
+            <section>
+                <p>2) $h(x) = g(f(x))$</p>
+                <pre style="font-size: 120%">
+f = (+1)
+g = show
+
+h x = g $ f x</pre>
+            </section>
+            <section>
+                <p>3) $h = g \cdot f$</p>
+                <pre style="font-size: 120%">
+f = (+1)
+g = show
+
+h = g . f</pre>
+            </section>
         </section>
     </div>
 </div>
