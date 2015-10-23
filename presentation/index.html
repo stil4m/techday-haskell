@@ -440,20 +440,6 @@ even = (`mod` 2)</pre>
         </section>
 
         <section>
-            <h3>List Comprehension</h3>
-            <pre style="font-size: 110%">
-[ (x,y) | x <- [1..10],
-          y <- [1..10],
-          x+y < 15]
-
--- Or better
-
-[ (x,y) | x <- [1..10],
-          let z = 15-x,
-          y <- [1..(min 10 z)]]</pre>
-        </section>
-
-        <section>
             <section>
                 <h3>Map, Filter & Reduce</h3>
             </section>
@@ -482,6 +468,45 @@ even = (`mod` 2)</pre>
                 <p>$\lambda x \mapsto x + 1$</p>
                 <code>\ x -> x + 1</code>
             </section>
+        </section>
+
+        <section>
+            <section>
+                <h3>Guards</h3>
+            </section>
+            <section>
+                <h4>Least Divisor</h4>
+                <p>Given i have $n$ and I want to find its least divisor</p>
+                <ol>
+                    <li>Let $k = 2$</li>
+                    <li>Check if $k$ divides $n$, then return $k$</li>
+                    <li>Check if $k$ exceeds the square root of $n$, then return $n$</li>
+                    <li>Otherwise go back to (2) with $k+1$</li>
+                </ol>
+            </section>
+            <section>
+                <pre style="font-size: 110%">
+ld :: Integer -> Integer
+ld n = ldf 2 n
+
+ldf k n | divides k n = k
+        | k^2>n =n
+        | otherwise = ldf (k+1) n
+                </pre>
+            </section>
+        </section>
+        <section>
+            <h3>List Comprehension</h3>
+            <pre style="font-size: 110%">
+[ (x,y) | x <- [1..10],
+          y <- [1..10],
+          x+y < 15]
+
+-- Or better
+
+[ (x,y) | x <- [1..10],
+          let z = 15-x,
+          y <- [1..(min 10 z)]]</pre>
         </section>
 
         <section>

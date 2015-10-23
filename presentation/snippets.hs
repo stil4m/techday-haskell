@@ -101,3 +101,17 @@ g = show
 h x = g (f x)
 h x = g $ f x
 h = g . f
+
+
+-------------------------------
+-- Guards      ----------------
+-------------------------------
+divides :: Integral a => a -> a -> Bool
+divides m n = mod m n == 0
+
+ld :: Integer -> Integer
+ld n = ldf 2 n
+
+ldf k n | divides k n = k
+        | k^2>n =n
+        | otherwise = ldf (k+1) n
