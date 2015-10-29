@@ -237,7 +237,7 @@ sum (\i -> i^2) [1..n]
 
         <section>
             <section>
-                <h4>Let's talk about functions</h4>
+                <h3>Let's talk about functions</h3>
             </section>
             <section>
                 <blockquote>
@@ -276,9 +276,9 @@ sum (\i -> i^2) [1..n]
                 </p>
             </section>
             <section>
-                <p>
-                    Lets talk about Javascript
-                </p>
+                <h4>
+                    Let's talk about Javascript
+                </h4>
             </section>
             <section>
                 <div class="more-clear">
@@ -324,7 +324,7 @@ add(5);
 
         <section>
             <section>
-                <h2>Lets talk about Syntax</h2>
+                <h3>Let's talk about Syntax</h3>
             </section>
             <section>
                 <h3>Comments</h3>
@@ -415,7 +415,7 @@ data Tree = Node Tree Tree
         </section>
         <section>
             <section>
-                <h3>Lets implement <code>even</code></h3>
+                <h3>Implement <code>even</code></h3>
             </section>
             <section>
                 <p>
@@ -491,6 +491,12 @@ odd x = not (even x)</pre>
             </section>
             <section>
                 <h3>Fold</h3>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h3>Pure and Lazy</h3>
             </section>
         </section>
 
@@ -685,6 +691,39 @@ odd = not . even</pre>
 
         <section>
             <section>
+                <h3>Monad</h3>
+            </section>
+            <section>
+                <blockquote>Monads are just like burritos</blockquote>
+            </section>
+            <section>
+                <blockquote>Using monads is like standing next to a conveyor belt</blockquote>
+                <ul>
+                    <li>Boxes pass by</li>
+                    <li>You can look inside, inspect the value</li>
+                    <li>You can not take the value out of the box</li>
+                    <li>You must create a new box on another conveyor belt</li>
+                </ul>
+            </section>
+            <section>
+                <pre style="font-size: 120%">
+addToRandom :: Int -> IO Int
+addToRandom x = do
+    n <- getRandomInt
+    return (n + x)</pre>
+            </section>
+            <section>
+                <h3>Why?</h3>
+            </section>
+            <section>
+                <img src="./img/samuel.jpg">
+                <br>
+                <small>Source: https://weregonnaneedabiggerblog.files.wordpress.com</small>
+            </section>
+        </section>
+
+        <section>
+            <section>
                 <h3>Conclusion</h3>
             </section>
             <section>
@@ -694,7 +733,7 @@ odd = not . even</pre>
                 <p>Easy to learn</p>
             </section>
             <section>
-                <p>For certain problems</p>
+                <p>For certain problems (S- and P-types)</p>
             </section>
         </section>
         <section>
@@ -706,14 +745,17 @@ odd = not . even</pre>
                 <ul>
                     <li>Pairing</li>
                     <li>Please use this room</li>
-                    <li>Learn Haskell</li>
+                    <li>Fork repository + pull request <br>
+                        (<code>hands-on/&lt;username&gt;</code></li>
                     <li>List of challenges</li>
+                    <li>Demo in the end</li>
                 </ul>
             </section>
             <section>
                 <h4>Challenges</h4>
 
-                <ol>
+                <ol start="0">
+                    <li>Learn Haskell</li>
                     <li>IBAN</li>
                     <li>Euler</li>
                     <li>CSI</li>
