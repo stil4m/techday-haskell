@@ -432,7 +432,7 @@ even :: Integer -> Bool
                 </p>
 					<pre style="font-size: 120%">
 even :: Integer -> Bool
-even x = mod x 2</pre>
+even x = mod x 2 == 0</pre>
             </section>
             <section>
                 <h3>
@@ -451,13 +451,7 @@ x `mod` 2
             <section>
 					<pre style="font-size: 120%">
 even :: Integer -> Bool
-even x = x `mod` 2
-
--- Step 1
-even x = (`mod` 2) x
-
--- Step 2
-even = (`mod` 2)</pre>
+even x = x `mod` 2 == 0</pre>
             </section>
             <section>
                 <h3>Odd?</h3>
