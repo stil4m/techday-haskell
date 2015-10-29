@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
 
-    <title>reveal.js - The HTML Presentation Framework</title>
+    <title>Haskell Techday</title>
 
-    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-    <meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="Haskell Techday">
+    <meta name="author" content="Mats Stijlaart">
 
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
@@ -22,12 +22,12 @@
 
     <script>
         MathJax.Hub.Config({
-            tex2jax : {
-                inlineMath : [
+            tex2jax: {
+                inlineMath: [
                     ['$', '$'],
                     ['\\(', '\\)']
                 ],
-                processEscapes : true
+                processEscapes: true
             }
         });
     </script>
@@ -167,7 +167,7 @@ if (a < b);
                     </li>
                     <li>Intentional mistakes. You just don't get it.
                         <br>
-                        <small>* it refers to the algoritm</small>
+                        <small>* it refers to the algorithm</small>
                     </li>
                 </ul>
             </section>
@@ -231,7 +231,7 @@ sum (\i -> i^2) [1..n]
             </section>
             <section>
                 <h4>Easy to read and write</h4>
-                <code>sum (\i -> i^2) [1..10]</code>
+                <code>map (\i -> i^2) [1..10]</code>
             </section>
         </section>
 
@@ -367,7 +367,7 @@ reverse
 sort</pre>
             </section>
             <section>
-                <h3>Pairs / Tuples</h3>
+                <h3>Pairs / Tuple</h3>
                 <pre style="font-size: 120%">
 (1, 2)
 (1, 2, 3)
@@ -388,6 +388,28 @@ bar :: String -> String
 bar n = reverse n
 
 foobar n = foo ++ bar n</pre>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h3>Types</h3>
+						<pre style="font-size: 120%">
+type Code = [Int]</pre>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h3>Data</h3>
+						<pre style="font-size: 120%">
+data Color = Blue | Red</pre>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h3>Data (2)</h3>
+						<pre style="font-size: 120%">
+data Tree = Node Tree Tree
+          | Leaf Int</pre>
                 </div>
             </section>
         </section>
@@ -437,6 +459,18 @@ even x = (`mod` 2) x
 -- Step 2
 even = (`mod` 2)</pre>
             </section>
+            <section>
+                <h3>Odd?</h3>
+                <pre style="font-size: 120%">
+odd :: Integer -> Bool
+...</pre>
+            </section>
+            <section>
+                <h3>Odd</h3>
+                <pre style="font-size: 120%">
+odd :: Integer -> Bool
+odd x = not (even x)</pre>
+            </section>
         </section>
 
         <section>
@@ -475,7 +509,31 @@ even = (`mod` 2)</pre>
                 <h3>Guards</h3>
             </section>
             <section>
+                <h4>Java</h4>
+                <pre style="font-size: 110%">
+if (...) {
+    println("Case 1");
+} else if (...) {
+    println("Case 2");
+} else {
+    println("Case 3");
+}</pre>
+            </section>
+            <section>
+                <h4>Haskell</h4>
+                <pre style="font-size: 110%">
+if ... then
+    println("Case 1");
+else
+    if ... then
+        println("Case 2");
+    else
+        println("Case 3");
+
+            </section>
+            <section>
                 <h4>Least Divisor</h4>
+
                 <p>Given i have $n$ and I want to find its least divisor</p>
                 <ol>
                     <li>Let $k = 2$</li>
@@ -489,8 +547,8 @@ even = (`mod` 2)</pre>
 ld :: Integer -> Integer
 ld n = ldf 2 n
 
-ldf k n | divides k n = k
-        | k^2>n =n
+ldf k n | k `divides` n = k
+        | k^2 > n = n
         | otherwise = ldf (k+1) n
                 </pre>
             </section>
@@ -552,7 +610,7 @@ opt f (Just a) = f a
 foo = opt (+9000) getSomeObject</pre>
             </section>
             <section>
-                <h4>Tuples / Triples</h4>
+                <h4>Tuple / Triple</h4>
             </section>
             <section>
                 <pre style="font-size:65%">
@@ -617,6 +675,55 @@ g = show
 
 h = g . f</pre>
             </section>
+            <section>
+                <h3>Odd</h3>
+                <pre style="font-size: 120%">
+odd :: Integer -> Bool
+odd = not . even</pre>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h3>Conclusion</h3>
+            </section>
+            <section>
+                <p>Easy to read, easy to reason about</p>
+            </section>
+            <section>
+                <p>Easy to learn</p>
+            </section>
+            <section>
+                <p>For certain problems</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Hands-on</h3>
+            </section>
+            <section>
+                <h4>Setup</h4>
+                <ul>
+                    <li>Pairing</li>
+                    <li>Please use this room</li>
+                    <li>Learn Haskell</li>
+                    <li>List of challenges</li>
+                </ul>
+            </section>
+            <section>
+                <h4>Challenges</h4>
+
+                <ol>
+                    <li>IBAN</li>
+                    <li>Euler</li>
+                    <li>CSI</li>
+                    <li>Trees</li>
+                    <li>Exponent Modulo</li>
+                    <li>Sudoku</li>
+                    <li>Evaluator</li>
+                    <li>Your own hackaton</li>
+                </ol>
+            </section>
         </section>
     </div>
 </div>
@@ -628,45 +735,45 @@ h = g . f</pre>
     // Full list of configuration options available at:
     // https://github.com/hakimel/reveal.js#configuration
     Reveal.initialize({
-        controls : true,
-        progress : true,
-        history : true,
-        center : true,
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
 
-        transition : 'slide', // none/fade/slide/convex/concave/zoom
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
 
         // Optional reveal.js plugins
-        dependencies : [{
-            src : 'lib/js/classList.js',
-            condition : function () {
+        dependencies: [{
+            src: 'lib/js/classList.js',
+            condition: function () {
                 return !document.body.classList;
             }
         }, {
-            src : 'plugin/markdown/marked.js',
-            condition : function () {
+            src: 'plugin/markdown/marked.js',
+            condition: function () {
                 return !!document.querySelector('[data-markdown]');
             }
         }, {
-            src : 'plugin/markdown/markdown.js',
-            condition : function () {
+            src: 'plugin/markdown/markdown.js',
+            condition: function () {
                 return !!document.querySelector('[data-markdown]');
             }
         }, {
-            src : 'plugin/highlight/highlight.js',
-            async : true,
-            condition : function () {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            condition: function () {
                 return !!document.querySelector('pre code');
             },
-            callback : function () {
+            callback: function () {
                 debugger;
                 hljs.initHighlightingOnLoad();
             }
         }, {
-            src : 'plugin/zoom-js/zoom.js',
-            async : true
+            src: 'plugin/zoom-js/zoom.js',
+            async: true
         }, {
-            src : 'plugin/notes/notes.js',
-            async : true
+            src: 'plugin/notes/notes.js',
+            async: true
         }]
     });
 </script>
