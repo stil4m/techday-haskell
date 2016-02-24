@@ -1,0 +1,1 @@
+data Color = Blue | Red

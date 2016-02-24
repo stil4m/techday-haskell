@@ -1,0 +1,3 @@
+/* Not Haskell */
+if (a < b);
+	doSomethingVeryImportant();

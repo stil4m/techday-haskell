@@ -1,0 +1,12 @@
+function add(x) {
+	return function (y) {
+		return x + y;
+	};
+}
+
+add(5)(37);
+//Evaluates to 42
+
+add(5);
+//Evaluates to a UNARY function
+//that adds 5 to its argument.

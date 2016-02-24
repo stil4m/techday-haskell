@@ -1,0 +1,8 @@
+/* Not Haskell */
+
+if (a < b)
+	doA();
+else
+	doB();
+
+//A and B will evaluate to the same 'thing'
