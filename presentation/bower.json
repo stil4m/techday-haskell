@@ -18,6 +18,7 @@
   "dependencies": {
     "reveal.js": "^3.2.0",
     "avisi-reveal-js-template": "https://github.com/stil4m/avisi-reveal-js-template.git",
-    "jquery": "^2.2.0"
+    "jquery": "^2.2.0",
+    "MathJax": "^2.6.1"
   }
 }

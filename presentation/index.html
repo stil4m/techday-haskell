@@ -20,20 +20,19 @@
   <link rel="stylesheet" href="bower_components/avisi-reveal-js-template/avisi.css" id="theme">
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
-  <!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> -->
+   <script type="text/javascript" src="bower_components/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
 
   <script>
-    // MathJax.Hub.Config({
-    //     tex2jax: {
-    //         inlineMath: [
-    //             ['$', '$'],
-    //             ['\\(', '\\)']
-    //         ],
-    //         processEscapes: true
-    //     }
-    // });
+     MathJax.Hub.Config({
+         tex2jax: {
+             inlineMath: [
+                 ['$', '$'],
+                 ['\\(', '\\)']
+             ],
+             processEscapes: true
+         }
+     });
   </script>
-  <!-- Code syntax highlighting -->
 
   <style>
     .smaller-left {
@@ -198,6 +197,12 @@
       <section>
         <h4>Easy to read and write</h4>
         <pre data-snippet="snippets/readable.hs"></pre>
+      </section>
+      <section>
+        <blockquote>
+          "The competent programmer is fully aware of the strictly limited size of their own skull."
+        </blockquote>
+        <small class="fragment">E. Dijkstra</small>
       </section>
     </section>
 
